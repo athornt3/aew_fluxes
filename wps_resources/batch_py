@@ -1,0 +1,27 @@
+#!/bin/bash -l
+### Job Name
+#PBS -N intermediate_files_wps
+### Charging account
+#PBS -A UNCS0049
+### Request one chunk of resources with 1 CPU and 10 GB of memory
+#PBS -l select=1:ncpus=16:mpiprocs=16:ompthreads=1
+### Allow job to run up to 12 hours
+#PBS -l walltime=720:00
+### Route the job to the derecho queue
+#PBS -q main
+### Join output and error streams into single file
+#PBS -j oe
+### Send email at abort, beginning, and end
+#PBS -m abe
+### Specifiy where to send email
+#PBS -M athornt3@ncsu.edu
+
+export TMPDIR=/glade/derecho/scratch/athornton/temp
+mkdir -p $TMPDIR
+
+### Load Python module and activate NPL environment
+module load conda
+conda activate npl-2026a
+
+### Run analysis script
+python era5_to_int.py -i 2020-09-03_03 2020-09-09_09
