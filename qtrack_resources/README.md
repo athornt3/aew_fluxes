@@ -16,7 +16,8 @@ For more detailed instructions, see Quinton's repository: https://github.com/qla
       - for example, a fluxoff simulation initialized at 12z on the 3rd: wind_for_tracking_fluxoff_0312.nc
       - There should be one of these merged files for each simulation.
 4) Now there should be trackable files for each simulation. Run qtrack.ipynb (Lawton et al, 2022) for each simulation
+   - Note, some of these waves might be difficult to capture, especially in the flux off runs. Play around with the settings to see if you can capture the wave. If not, fill in the blanks manually.     
 5) Now, we have wave tracks for every detectable wave in our simulations. Because we are focusing on the waves that lead to Hurricane Paulette and Tropical Storm Rene, we go into these tracks, grab each of these waves, and save them separately. To do so, use save_wave_tracks_for_wrfout.ipynb
    - This code will require some guessing and checking. It's helpful to look at the Hovmollers output by the tracker to determine the approximate longitude of the wave you want to track. Rene ends around 40W, Paulette ends around 55W. 
-    
+6) To interpolate this track back to the time intervals of our wrf experiments, use interpolate_qtrack.ipynb. Uses a simple linear interpolation provided by A. Aiyyer to find track points every 3 hour.     
      
