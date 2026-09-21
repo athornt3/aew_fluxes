@@ -9,4 +9,7 @@ Simple overview:
    - python era5_to_int.py -i 2020-09-03_03 2020-09-09_09
 4) note: the "-i" tells the script to use pressure data. To use model data, remove this indicator.
 5) run the script by qsub batch_py
-6) Again, for more information and detailed readme, visit: https://github.com/NCAR/era5_to_int
+6) IMPORTANT**** BEFORE RUNNING metgrid.exe, make sure to modify namelist.wps so that the fg_name reflects the ERA5 files. previously this may have said "FILE":
+     - &metgrid
+          fg_name    = 'ERA5'
+7) Again, for more information and detailed readme, visit: https://github.com/NCAR/era5_to_int
